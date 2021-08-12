@@ -21,14 +21,5 @@ class UserSeeder extends Seeder
 			'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
 			'updated_at' => \Carbon\Carbon::now()->toDateTimeString(),
 		]);
-		DB::table('users')->insert([
-			'name' => 'Usuario Prueba',
-			'last_name' => 'Lagobo',
-			'phone' => '123456789',
-			'email' => 'prueba@lagobo.com',
-			'password' => bcrypt('123456789'),
-			'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
-			'updated_at' => \Carbon\Carbon::now()->toDateTimeString(),
-		]);
 	}
 }
