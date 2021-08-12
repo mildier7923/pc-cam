@@ -46,14 +46,16 @@
 
 						<!-- Password -->
 						<div class="form-group">
-							<label for="password">Contraseña</label>
+							<label for="password">Contraseña <small>mayor a 8 caracteres</small></label>
 							<input type="password" class="form-control" id="password" v-model="password" :placeholder="`${is_created?'Escribe la contraseña':'Escribe la contraseña (Opcional)'}`" autocomplete="new-password" :required="is_created">
 						</div>
 					</div>
 
 					<div class="modal-footer">
-						<button type="button" class="btn btn-secondary" @click="$parent.closeModal">Cerrar</button>
-						<button type="submit" class="btn btn-primary">Guardar Cambios</button>
+						<button type="button" class="btn btn-outline-secondary" @click="$parent.closeModal">
+							Cerrar
+						</button>
+						<button type="submit" class="btn btn-secondary">Guardar Cambios</button>
 					</div>
 				</div>
 			</div>
@@ -102,10 +104,19 @@
 					})
 					.catch(error => {
 						console.log(error)
-						swal({
-							title: 'Hay problemas con las credenciales!',
-							icon: 'error'
-						})
+						if (error.response.status === 422) {
+							const values = Object.values(error.response.data.errors)
+							swal({
+								title: 'Hay problemas con las credenciales!',
+								text: `${values[0]}`,
+								icon: 'error'
+							})
+						} else {
+							swal({
+								title: 'Hay problemas con el servidor!',
+								icon: 'error'
+							})
+						}
 					})
 			},
 			getRoute() {

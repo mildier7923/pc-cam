@@ -16,6 +16,7 @@
 			<li><b>Apellidos:</b> {{$contact->last_name}}</li>
 			<li><b>Telefono:</b> {{$contact->phone}}</li>
 			<li><b>Correo:</b> {{$contact->email}}</li>
+			<li><b>Fecha y Hora:</b> {{$contact->date}}</li>
 			<li><b>Mensaje:</b> {{$contact->message}}</li>
 		</ul>
 	</div>

@@ -1,7 +1,7 @@
 <!-- Logo -->
 <a href="{{route('home')}}" class="brand-link">
-	<img src="{{asset('img/logos/siving-system-logo.png')}}" alt="Logo" class="brand-image img-circle elevation-3"
-		style="opacity: .8" width="35">
+	<img src="{{asset('img/logos/logo.png')}}" alt="Logo" class="brand-image img-circle elevation-3" style="opacity: .8"
+		width="35">
 	<span class="brand-text font-weight-light font-weight-bold">Lagobo</span>
 </a>
 
@@ -49,6 +49,7 @@
 			</li>
 
 			{{-- Users --}}
+			@role('admin')
 			<li class="nav-item">
 				<a href="{{route('user')}}" class="nav-link">
 					<i class="nav-icon fas fa-users"></i>
@@ -57,6 +58,7 @@
 					</p>
 				</a>
 			</li>
+			@endrole
 		</ul>
 	</nav>
 </div>

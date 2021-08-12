@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Role;
+use App\Http\Requests\UserCreateRequest;
+use App\Http\Requests\UserUpdateRequest;
 
 class UserController extends Controller
 {
@@ -23,7 +25,7 @@ class UserController extends Controller
 			return response()->json($user->load('roles'), 200);
 		}
 
-    public function storeUser(Request $request)
+    public function storeUser(UserCreateRequest $request)
 		{
 			$user = new User($request->all());
 			$user->save();
@@ -31,7 +33,7 @@ class UserController extends Controller
 			return response()->json(['saved' => true], 201);
 		}
 
-		public function updateUser(User $user, Request $request)
+		public function updateUser(User $user, UserUpdateRequest $request)
 		{
 			$user->update($request->all());
 			$user->refresh()->syncRoles($request->role);

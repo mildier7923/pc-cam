@@ -1997,6 +1997,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['type', 'contacts'],
   data: function data() {
@@ -2005,20 +2007,24 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   mounted: function mounted() {
-    $("#table-".concat(this.type)).DataTable({
-      dom: 'Bfrtip',
-      buttons: ['excel', 'copy'],
-      process: true
-    });
+    var _this = this;
+
+    setTimeout(function () {
+      $("#table-".concat(_this.type)).DataTable({
+        dom: 'Bfrtip',
+        buttons: ['excel', 'copy'],
+        process: true
+      });
+    }, 500);
   },
   methods: {
     addToInterviewed: function addToInterviewed(contact_id, index) {
-      var _this = this;
+      var _this2 = this;
 
       axios.put("contacts/status-update/".concat(contact_id), {
         contact: true
       }).then(function () {
-        _this.deleteToArray(index);
+        _this2.deleteToArray(index);
 
         swal({
           title: 'Contacto Actualizado!',
@@ -2027,7 +2033,7 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     validateDeleteContact: function validateDeleteContact(contact_id, index) {
-      var _this2 = this;
+      var _this3 = this;
 
       swal({
         title: 'Estas Seguro de Eliminarlo?',
@@ -2035,14 +2041,14 @@ __webpack_require__.r(__webpack_exports__);
         buttons: true,
         dangerMode: true
       }).then(function (willDelete) {
-        if (willDelete) _this2.deleteContact(contact_id, index);
+        if (willDelete) _this3.deleteContact(contact_id, index);
       });
     },
     deleteContact: function deleteContact(contact_id, index) {
-      var _this3 = this;
+      var _this4 = this;
 
       axios["delete"]("contacts/delete/".concat(contact_id)).then(function () {
-        _this3.deleteToArray(index);
+        _this4.deleteToArray(index);
 
         swal({
           title: 'Contacto Eliminado!',
@@ -2157,11 +2163,13 @@ __webpack_require__.r(__webpack_exports__);
         _this.users = response.data;
         _this.load = true;
       })["finally"](function () {
-        $("#table").DataTable({
-          dom: 'Bfrtip',
-          buttons: ['excel', 'copy'],
-          process: true
-        });
+        setTimeout(function () {
+          $("#table").DataTable({
+            dom: 'Bfrtip',
+            buttons: ['excel', 'copy'],
+            process: true
+          });
+        }, 200);
       });
     },
     editUser: function editUser(user_id) {
@@ -2300,6 +2308,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['user'],
   data: function data() {
@@ -2343,10 +2353,20 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         });
       })["catch"](function (error) {
         console.log(error);
-        swal({
-          title: 'Hay problemas con las credenciales!',
-          icon: 'error'
-        });
+
+        if (error.response.status === 422) {
+          var values = Object.values(error.response.data.errors);
+          swal({
+            title: 'Hay problemas con las credenciales!',
+            text: "".concat(values[0]),
+            icon: 'error'
+          });
+        } else {
+          swal({
+            title: 'Hay problemas con el servidor!',
+            icon: 'error'
+          });
+        }
       });
     },
     getRoute: function getRoute() {
@@ -56325,6 +56345,8 @@ var render = function() {
             _vm._v(" "),
             _c("td", [_vm._v("Mensaje")]),
             _vm._v(" "),
+            _c("td", [_vm._v("Fecha y Hora")]),
+            _vm._v(" "),
             _vm.type == "contact-true"
               ? _c("td", [_vm._v("Usuario")])
               : _vm._e(),
@@ -56346,6 +56368,8 @@ var render = function() {
               _c("td", [_vm._v(_vm._s(item.email))]),
               _vm._v(" "),
               _c("td", [_vm._v(_vm._s(item.message))]),
+              _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(item.date))]),
               _vm._v(" "),
               _vm.type == "contact-true"
                 ? _c("td", [
@@ -56445,7 +56469,7 @@ var render = function() {
                     _c(
                       "button",
                       {
-                        staticClass: "btn btn-primary btn-sm",
+                        staticClass: "btn btn-secondary btn-sm",
                         on: { click: _vm.createUser }
                       },
                       [
@@ -56872,9 +56896,7 @@ var render = function() {
                     ),
                     _vm._v(" "),
                     _c("div", { staticClass: "form-group" }, [
-                      _c("label", { attrs: { for: "password" } }, [
-                        _vm._v("Contraseña")
-                      ]),
+                      _vm._m(0),
                       _vm._v(" "),
                       _c("input", {
                         directives: [
@@ -56915,16 +56937,19 @@ var render = function() {
                 _c(
                   "button",
                   {
-                    staticClass: "btn btn-secondary",
+                    staticClass: "btn btn-outline-secondary",
                     attrs: { type: "button" },
                     on: { click: _vm.$parent.closeModal }
                   },
-                  [_vm._v("Cerrar")]
+                  [_vm._v("\n\t\t\t\t\t\tCerrar\n\t\t\t\t\t")]
                 ),
                 _vm._v(" "),
                 _c(
                   "button",
-                  { staticClass: "btn btn-primary", attrs: { type: "submit" } },
+                  {
+                    staticClass: "btn btn-secondary",
+                    attrs: { type: "submit" }
+                  },
                   [_vm._v("Guardar Cambios")]
                 )
               ])
@@ -56935,7 +56960,17 @@ var render = function() {
     ]
   )
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { attrs: { for: "password" } }, [
+      _vm._v("Contraseña "),
+      _c("small", [_vm._v("mayor a 8 caracteres")])
+    ])
+  }
+]
 render._withStripped = true
 
 

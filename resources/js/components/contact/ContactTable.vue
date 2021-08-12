@@ -8,6 +8,7 @@
 					<td>Telefono</td>
 					<td>Correo</td>
 					<td>Mensaje</td>
+					<td>Fecha y Hora</td>
 					<td v-if="type == 'contact-true'">Usuario</td>
 					<td>Accion</td>
 				</tr>
@@ -19,6 +20,7 @@
 					<td>{{item.phone}}</td>
 					<td>{{item.email}}</td>
 					<td>{{item.message}}</td>
+					<td>{{item.date}}</td>
 					<td v-if="type == 'contact-true'">{{!item.user ? 'N/A':item.user.name}}</td>
 					<td>
 						<div class="actions w-100 d-flex justify-content-center">
@@ -44,11 +46,13 @@
 			}
 		},
 		mounted() {
-			$(`#table-${this.type}`).DataTable({
-				dom: 'Bfrtip',
-				buttons: ['excel', 'copy'],
-				process: true
-			})
+			setTimeout(() => {
+				$(`#table-${this.type}`).DataTable({
+					dom: 'Bfrtip',
+					buttons: ['excel', 'copy'],
+					process: true
+				})
+			}, 500)
 		},
 		methods: {
 			addToInterviewed(contact_id, index) {

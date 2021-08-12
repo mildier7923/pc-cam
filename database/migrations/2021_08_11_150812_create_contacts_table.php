@@ -22,8 +22,8 @@ class CreateContactsTable extends Migration
             $table->string('email');
             $table->text('message')->nullable();
 						$table->boolean('contact')->default(0);
+						$table->dateTime('date');
             $table->timestamps();
-            $table->softDeletes();
 
 					$table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });

@@ -5,7 +5,7 @@
 				<div class="card-header d-flex justify-content-between">
 					<h2 class="h5 col-6">Lista de usuarios</h2>
 					<div class="col-6  d-flex justify-content-end">
-						<button class="btn btn-primary btn-sm" @click="createUser">
+						<button class="btn btn-secondary btn-sm" @click="createUser">
 							<i class="fas fa-user-plus"></i>
 							<samp class="pl-2">Crear Usuario</samp>
 						</button>
@@ -83,11 +83,13 @@
 						this.load = true
 					})
 					.finally(() => {
-						$(`#table`).DataTable({
-							dom: 'Bfrtip',
-							buttons: ['excel', 'copy'],
-							process: true
-						})
+						setTimeout(() => {
+							$(`#table`).DataTable({
+								dom: 'Bfrtip',
+								buttons: ['excel', 'copy'],
+								process: true
+							})
+						}, 200)
 					})
 			},
 			editUser(user_id) {
