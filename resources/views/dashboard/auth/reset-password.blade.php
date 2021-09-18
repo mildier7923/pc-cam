@@ -1,9 +1,9 @@
 @extends('dashboard.layouts.auth')
-@section('title', 'Reset Password')
+@section('title', 'Nueva Contraseña')
 @section('content')
 
 <div class="card-header login-card-header bg-secondary">
-	<p class="h5 text-center mt-1">Reset Password</p>
+	<p class="h5 text-center mt-1">Nueva Contraseña</p>
 </div>
 <div class="card-body login-card-body">
 	<form action="/reset-password" method="post" class="pt-2" autocomplete="off">
@@ -14,7 +14,7 @@
 		{{-- Password --}}
 		<div class="input-group mb-3">
 			<input type="password" name="password" class="form-control @error('password') is-invalid @enderror"
-				placeholder="New Password" required>
+				placeholder="Nueva Contraseña" required>
 			<div class="input-group-append">
 				<div class="input-group-text">
 					<span class="fas fa-lock"></span>
@@ -30,7 +30,7 @@
 		{{-- Confirm --}}
 		<div class="input-group mb-3">
 			<input type="password" name="password_confirmation" class="form-control @error('password') is-invalid @enderror"
-				placeholder="Password Confirmation" required>
+				placeholder="Repite contraseña" required>
 			<div class="input-group-append">
 				<div class="input-group-text">
 					<span class="fas fa-lock"></span>
@@ -45,7 +45,7 @@
 
 		<div class="row">
 			<div class="col-12">
-				<button type="submit" class="btn btn-secondary btn-block">Reset Password</button>
+				<button type="submit" class="btn btn-secondary btn-block">Cambiar Contraseña</button>
 			</div>
 		</div>
 	</form>

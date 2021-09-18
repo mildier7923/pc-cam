@@ -2,7 +2,7 @@
 <html>
 
 <head>
-	<title>Lagobo | @yield('title')</title>
+	<title>PC-CAM | @yield('title')</title>
 	@include('dashboard.layouts._header')
 	@yield('head')
 </head>
@@ -13,7 +13,7 @@
 			<div class="mr-4">
 				<img src="{{asset('img/logos/big-logo.png')}}" alt="Logo" width="60">
 			</div>
-			<h1 style="color:#6c757d;" class="mb-4">Lagobo</h1>
+			<h1 style="color:#6c757d;" class="mb-4">PC-CAM</h1>
 		</div>
 
 		@include('dashboard.layouts._alert')

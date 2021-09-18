@@ -56,7 +56,7 @@
         <div class="row">
             <!-- /.col -->
             <div class="col-12">
-                <button type="submit" class="btn btn-secondary btn-block">Login</button>
+                <button type="submit" class="btn btn-secondary btn-block">Iniciar Sesion</button>
             </div>
             <!-- /.col -->
         </div>
@@ -65,7 +65,7 @@
 
 <div class="login-card-footer">
     <p class="text-center">
-        <a href="forgot-password" style="color:#6c757d;">I forgot my password</a>
+        <a href="forgot-password" style="color:#6c757d;">Olvido su contraseña?</a>
     </p>
 </div>
 

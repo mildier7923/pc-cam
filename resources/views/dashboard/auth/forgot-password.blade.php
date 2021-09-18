@@ -1,11 +1,11 @@
 @extends('dashboard.layouts.auth')
 
-@section('title', 'Forgot Password')
+@section('title', 'Olvido su contraseña?')
 
 @section('content')
 
 <div class="card-header login-card-header bg-secondary">
-	<p class="h5 text-center mt-1">Forgot Password</p>
+	<p class="h5 text-center mt-1">Olvido su contraseña?</p>
 </div>
 <div class="card-body login-card-body">
 	<form action="forgot-password" method="post" class="pt-2" autocomplete="off">
@@ -14,7 +14,7 @@
 		{{-- email --}}
 		<div class="input-group mb-3">
 			<input type="email" name="email" class="form-control @error('email') is-invalid @enderror"
-				placeholder="email" required value="{{ $email ?? old('email') }}">
+				placeholder="Correo Electronico" required value="{{ $email ?? old('email') }}">
 			<div class="input-group-append">
 				<div class="input-group-text">
 					<span class="fas fa-user"></span>
@@ -42,10 +42,10 @@
 		{{-- Buttons --}}
 		<div class="row mt-3">
 			<div class="col-6">
-				<a href="login" class="btn btn-ligth btn-block" style="color:#6c757d;">Cancel</a>
+				<a href="login" class="btn btn-ligth btn-block" style="color:#6c757d;">Cancelar</a>
 			</div>
 			<div class="col-6">
-				<button type="submit" class="btn btn-secondary btn-block">Send Email</button>
+				<button type="submit" class="btn btn-secondary btn-block">Enviar correo</button>
 			</div>
 		</div>
 

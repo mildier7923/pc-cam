@@ -13,10 +13,10 @@ class UserSeeder extends Seeder
 	public function run()
 	{
 		DB::table('users')->insert([
-			'name' => 'Director Comercial',
-			'last_name' => 'Lagobo',
+			'name' => 'Administrador',
+			'last_name' => 'Mildier',
 			'phone' => '123456789',
-			'email' => 'directorcomercial@lagobo.com',
+			'email' => 'mildier@hotmail.com',
 			'password' => bcrypt('123456789'),
 			'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
 			'updated_at' => \Carbon\Carbon::now()->toDateTimeString(),

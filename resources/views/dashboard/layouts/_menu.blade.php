@@ -2,7 +2,7 @@
 <a href="{{route('home')}}" class="brand-link">
 	<img src="{{asset('img/logos/logo.png')}}" alt="Logo" class="brand-image img-circle elevation-3" style="opacity: .8"
 		width="35">
-	<span class="brand-text font-weight-light font-weight-bold">Lagobo</span>
+	<span class="brand-text font-weight-light font-weight-bold">PC-CAM</span>
 </a>
 
 <!-- Menu -->
