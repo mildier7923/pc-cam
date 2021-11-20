@@ -27,7 +27,7 @@
 <link rel="stylesheet" href="{{ mix('css/app.css')}}">
 
 {{-- Favicon --}}
-<link rel="shortcut icon" href="{{ asset('img/logos/logo.ico')}}" type="image/x-icon">
+<link rel="shortcut icon" href="{{ asset('img/icons/icono.jpg')}}" type="image/x-icon">
 
 {{-- Datatable --}}
 <link rel="stylesheet" href="{{ asset('css/dataTables/dataTables.bootstrap4.min.css') }}">

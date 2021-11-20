@@ -18,12 +18,5 @@ class RoleSeeder extends Seeder
 			'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
 			'updated_at' => \Carbon\Carbon::now()->toDateTimeString(),
 		]);
-
-		DB::table('roles')->insert([
-			'name' => 'caller',
-			'guard_name' => 'web',
-			'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
-			'updated_at' => \Carbon\Carbon::now()->toDateTimeString(),
-		]);
 	}
 }

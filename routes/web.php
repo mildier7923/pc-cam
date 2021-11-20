@@ -53,6 +53,10 @@ Route::group(['middleware' => ['auth:web']], function () {
 		Route::delete('/delete/{contact}', 'ContactController@delete');
 	});
 
+	Route::group(['prefix' => 'products'], function () {
+		Route::view('/', 'dashboard.pages.product')->name('product');
+	});
+
 	Route::group(['prefix' => 'users', 'middleware' => ['role:admin']], function () {
 		Route::view('/', 'dashboard.pages.user')->name('user');
 		Route::get('/get-all-roles', 'UserController@getAllRoles');

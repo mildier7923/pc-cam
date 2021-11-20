@@ -1,6 +1,6 @@
 <!-- Logo -->
 <a href="{{route('home')}}" class="brand-link">
-	<img src="{{asset('img/logos/logo.png')}}" alt="Logo" class="brand-image img-circle elevation-3" style="opacity: .8"
+	<img src="{{asset('img/icons/icono.jpg')}}" alt="Logo" class="brand-image img-circle elevation-3" style="opacity: .8"
 		width="35">
 	<span class="brand-text font-weight-light font-weight-bold">PC-CAM</span>
 </a>
@@ -42,14 +42,23 @@
 						<a href="{{route('contact.interview')}}" class="nav-link">
 							<i class="nav-icon fas fa-circle"></i>
 							{{-- <i class="far fa-circle nav-icon"></i> --}}
-							<p> Entrevistados</p>
+							<p> Revisados</p>
 						</a>
 					</li>
+
 				</ul>
 			</li>
 
 			{{-- Users --}}
 			@role('admin')
+			<li class="nav-item">
+				<a href="{{route('product')}}" class="nav-link">
+					<i class="nav-icon fas fa-box"></i>
+					<p>
+						Productos
+					</p>
+				</a>
+			</li>
 			<li class="nav-item">
 				<a href="{{route('user')}}" class="nav-link">
 					<i class="nav-icon fas fa-users"></i>

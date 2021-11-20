@@ -11,7 +11,7 @@
 	<div class="login-box">
 		<div class="login-logo d-flex justify-content-center">
 			<div class="mr-4">
-				<img src="{{asset('img/logos/big-logo.png')}}" alt="Logo" width="60">
+				<img src="{{asset('img/icons/icono.jpg')}}" alt="Logo" width="60" style="border-radius: 50%">
 			</div>
 			<h1 style="color:#6c757d;" class="mb-4">PC-CAM</h1>
 		</div>

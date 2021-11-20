@@ -2,7 +2,7 @@
 <html>
 
 <head>
-	<title>Lagobo | @yield('title')</title>
+	<title>PC-CAM | @yield('title')</title>
 	@include('dashboard.layouts._header')
 	@yield('head')
 </head>
