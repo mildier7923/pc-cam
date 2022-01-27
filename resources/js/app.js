@@ -10,12 +10,16 @@ Vue.use(VeeValidate)
 import ContactIndex from './components/contact/ContactIndex.vue'
 import ContactInterviewed from './components/contact/ContactInterviewed.vue'
 import UserIndex from './components/user/UserIndex.vue'
+import ProductForm from './components/products/Form.vue'
+import ProductEdit from './components/products/Edit.vue'
 
 new Vue({
 	el: '#app',
 	components: {
 		ContactIndex,
 		ContactInterviewed,
-		UserIndex
+		UserIndex,
+		ProductForm,
+		ProductEdit
 	}
 })

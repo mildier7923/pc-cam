@@ -10,12 +10,13 @@
 <div class="content b-color">
 	<div class="container-fluid row">
 		<div class="col-sm-6">
-			<h1 class="m-0 text-dark h2">Productos</h1>
+			<h1 class="m-0 text-dark h2">Editar Producto {{$product->name}}</h1>
 		</div>
 		<div class="col-sm-6">
 			<ol class="float-sm-right breadcrumb">
 				<li class="breadcrumb-item"><a href="{{route('home')}}"> Inicio </a></li>
-				<li class="breadcrumb-item active"> Productos </li>
+				<li class="breadcrumb-item active"><a href="{{route('product')}}"> Productos </a></li>
+				<li class="breadcrumb-item active"> Editar </li>
 			</ol>
 		</div>
 	</div>
@@ -27,6 +28,7 @@
 		<section class="col-md-12">
 			<div class="justify-content-center">
 				<div id="app">
+					<product-edit :product="{{json_encode($product)}}"></product-edit>
 				</div>
 			</div>
 		</section>

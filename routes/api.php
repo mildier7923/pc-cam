@@ -4,3 +4,4 @@ header('Access-Control-Allow-Headers: *');
 header('Access-Control-Allow-Origin: *');
 
 Route::post('contacts', 'ContactController@store');
+Route::get('getProducts','ProductController@getProducts');

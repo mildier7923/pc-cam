@@ -14,7 +14,7 @@ class ContactController extends Controller
 			$contact = new Contact($request->all());
 			$contact->date = Carbon::now()->format('Y-m-d H:i');
 			$contact->save();
-			return response()->json(['saved' => true], 201);
+			return response()->json(['saved' => true]);
 		}
 
 		public function getAll($status)

@@ -46,15 +46,18 @@ Route::group(['middleware' => ['auth:web']], function () {
 	});
 
 	Route::group(['prefix' => 'contacts'], function () {
-		Route::view('/', 'dashboard.pages.contact')->name('contact');
-		Route::view('/interview', 'dashboard.pages.contact-interview')->name('contact.interview');
+		Route::view('/', 'dashboard.pages.contacts.contact')->name('contact');
+		Route::view('/interview', 'dashboard.pages.contacts.contact-interview')->name('contact.interview');
 		Route::get('/get-all/{status}', 'ContactController@getAll');
 		Route::put('/status-update/{contact}', 'ContactController@update');
 		Route::delete('/delete/{contact}', 'ContactController@delete');
 	});
 
 	Route::group(['prefix' => 'products'], function () {
-		Route::view('/', 'dashboard.pages.product')->name('product');
+		Route::get('/', 'ProductController@index')->name('product');
+		Route::get('/edit/{id}', 'ProductController@edit')->name('products.edit');
+		Route::view('/form', 'dashboard.pages.products.form')->name('products.form');
+		Route::post('/store','ProductController@store');
 	});
 
 	Route::group(['prefix' => 'users', 'middleware' => ['role:admin']], function () {
